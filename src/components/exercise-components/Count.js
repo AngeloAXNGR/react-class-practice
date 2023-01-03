@@ -36,22 +36,59 @@ import React from "react"
 //     )
 // }
 
+
+/**
+ * Challenge: convert the class fields and arrow methods
+ * to make use of the class `constructor` method.
+ * 
+ * 1. Add a constructor() method
+ * 2. Call super()
+ * 3. Initialize your state inside the constructor
+ * 4. Convert your arrow function class methods back to
+ *    regular class methods
+ * 5. Bind those class methods in the constructor method
+ */
+
 export default class Count extends React.Component{
-  state = {
-    count: 0,
+  // state = {
+  //   count: 0,
+  // }
+
+  // add = () =>{
+  //   this.setState(prevState => {
+  //     return {count: prevState.count + 1}
+  //   })
+  // }
+
+  // subtract = () =>{
+  //   this.setState(prevState => {
+  //     return {count: prevState.count - 1}
+  //   })
+  // }
+
+  constructor(){
+    super();
+    this.state = {
+      count:0
+    }
+
+    this.add = this.add.bind(this);
+    this.subtract = this.subtract.bind(this);
   }
 
-  add = () =>{
+
+  add() {
     this.setState(prevState => {
       return {count: prevState.count + 1}
     })
   }
 
-  subtract = () =>{
+  subtract() {
     this.setState(prevState => {
       return {count: prevState.count - 1}
     })
   }
+
 
   render(){
     return(
